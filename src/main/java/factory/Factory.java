@@ -1,6 +1,8 @@
 package factory;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 // object holding a triplet of panels matching the volume and cost of production
 class BoxInfo {

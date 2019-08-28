@@ -1,14 +1,17 @@
-package testing;
-
 import factory.Factory;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
+import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.testng.Assert;
-import org.testng.annotations.*;
 
 
 public class Testing {
+
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
 
     @Test
     // test on list of panels from the email
@@ -37,7 +40,7 @@ public class Testing {
         result.add(pair2);
         result.add(pair2);
         result.add(pair4);
-        Assert.assertEquals(Arrays.deepToString(new Factory(testCase, 12).getResult().toArray()), Arrays.deepToString(result.toArray()));
+        assertEquals(Arrays.deepToString(new Factory(testCase, 12).getResult().toArray()), Arrays.deepToString(result.toArray()));
     }
 
     @Test
@@ -47,7 +50,7 @@ public class Testing {
         List<int[]> testCase = new ArrayList<>();
         int[] pair1 = {2, 4};
         testCase.add(pair1);
-        Assert.assertEquals(Arrays.deepToString(new Factory(testCase, 12).getResult().toArray()), "[]");
+        assertEquals(Arrays.deepToString(new Factory(testCase, 12).getResult().toArray()), "[]");
     }
 
     @Test
@@ -61,7 +64,7 @@ public class Testing {
         result.add(pair1);
         result.add(pair1);
         result.add(pair1);
-        Assert.assertEquals(Arrays.deepToString(new Factory(testCase, 8).getResult().toArray()), Arrays.deepToString(result.toArray()));
+        assertEquals(Arrays.deepToString(new Factory(testCase, 8).getResult().toArray()), Arrays.deepToString(result.toArray()));
     }
 
     @Test
@@ -75,7 +78,7 @@ public class Testing {
         testCase.add(pair2);
         int[] pair3 = {2, 3};
         testCase.add(pair3);
-        Assert.assertEquals(Arrays.deepToString(new Factory(testCase, 20).getResult().toArray()), "[]");
+        assertEquals(Arrays.deepToString(new Factory(testCase, 20).getResult().toArray()), "[]");
     }
 
     @Test
@@ -93,7 +96,7 @@ public class Testing {
         result.add(pair1);
         result.add(pair2);
         result.add(pair3);
-        Assert.assertEquals(Arrays.deepToString(new Factory(testCase, 12).getResult().toArray()), Arrays.deepToString(result.toArray()));
+        assertEquals(Arrays.deepToString(new Factory(testCase, 12).getResult().toArray()), Arrays.deepToString(result.toArray()));
     }
 
     @Test
@@ -107,7 +110,7 @@ public class Testing {
         testCase.add(pair2);
         int[] pair3 = {4, 3};
         testCase.add(pair3);
-        Assert.assertEquals(Arrays.deepToString(new Factory(testCase, 12).getResult().toArray()), "[]");
+        assertEquals(Arrays.deepToString(new Factory(testCase, 12).getResult().toArray()), "[]");
     }
 
     @Test
@@ -125,7 +128,7 @@ public class Testing {
         result.add(pair1);
         result.add(pair2);
         result.add(pair3);
-        Assert.assertEquals(Arrays.deepToString(new Factory(testCase, 24).getResult().toArray()), Arrays.deepToString(result.toArray()));
+        assertEquals(Arrays.deepToString(new Factory(testCase, 24).getResult().toArray()), Arrays.deepToString(result.toArray()));
     }
 
     @Test
@@ -145,7 +148,7 @@ public class Testing {
         result.add(pair1);
         result.add(pair1);
         result.add(pair3);
-        Assert.assertEquals(Arrays.deepToString(new Factory(testCase, 12).getResult().toArray()), Arrays.deepToString(result.toArray()));
+        assertEquals(Arrays.deepToString(new Factory(testCase, 12).getResult().toArray()), Arrays.deepToString(result.toArray()));
     }
 
     @Test
@@ -167,7 +170,7 @@ public class Testing {
         result.add(pair1);
         result.add(pair2);
         result.add(pair3);
-        Assert.assertEquals(Arrays.deepToString(new Factory(testCase, 24).getResult().toArray()), Arrays.deepToString(result.toArray()));
+        assertEquals(Arrays.deepToString(new Factory(testCase, 24).getResult().toArray()), Arrays.deepToString(result.toArray()));
     }
 
     @Test
@@ -189,7 +192,7 @@ public class Testing {
         result.add(pair1);
         result.add(pair4);
         result.add(pair5);
-        Assert.assertEquals(Arrays.deepToString(new Factory(testCase, 30).getResult().toArray()), Arrays.deepToString(result.toArray()));
+        assertEquals(Arrays.deepToString(new Factory(testCase, 30).getResult().toArray()), Arrays.deepToString(result.toArray()));
     }
 
     @Test
@@ -213,13 +216,14 @@ public class Testing {
         result.add(pair1);
         result.add(pair2);
         result.add(pair3);
-        Assert.assertEquals(Arrays.deepToString(new Factory(testCase, 540).getResult().toArray()), Arrays.deepToString(result.toArray()));
+        assertEquals(Arrays.deepToString(new Factory(testCase, 540).getResult().toArray()), Arrays.deepToString(result.toArray()));
     }
 
-    @Test(expectedExceptions = IllegalArgumentException.class)
+    @Test
     // test on five panels with invalid input data
 
     public void testOnInvalidPanelSize() {
+        expectedException.expect(IllegalArgumentException.class);
         List<int[]> testCase = new ArrayList<>();
         int[] pair1 = {2, 3, 5};
         testCase.add(pair1);
