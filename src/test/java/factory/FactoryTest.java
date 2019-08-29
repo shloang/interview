@@ -1,4 +1,5 @@
-import factory.Factory;
+package factory;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -8,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class Testing {
+public class FactoryTest {
 
     @Rule
     public ExpectedException expectedException = ExpectedException.none();

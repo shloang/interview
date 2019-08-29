@@ -70,7 +70,7 @@ public class Factory {
         return -1;
     }
 
-    // find valid triplets, put them in a BoxInfo object
+    // find valid triplets, put them in a factory.BoxInfo object
     private ArrayList<int[]> findLowestValidTriplet() {
         BoxInfo boxInfo = new BoxInfo();
         for (int i = 0; i < this.set.size(); i++) {
@@ -81,7 +81,7 @@ public class Factory {
                         int cost = this.set.get(i)[0] * this.set.get(i)[1] + this.set.get(j)[0] * this.set.get(j)[1] +
                                 this.set.get(k)[0] * this.set.get(k)[1];
                         if (cost < boxInfo.cost) {
-                            // creating ArrayList to put into BoxInfo object
+                            // creating ArrayList to put into factory.BoxInfo object
                             ArrayList<int[]> validTriplet = new ArrayList<>();
                             validTriplet.add(this.set.get(i));
                             validTriplet.add(this.set.get(j));
